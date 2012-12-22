@@ -1,0 +1,45 @@
+{
+  "name": "grunt-yaml",
+  "description": "Compiles YAML to JSON.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shiwano/grunt-yaml",
+  "author": {
+    "name": "Shogo Iwano",
+    "email": "shiwano@gmail.com",
+    "url": "http://shiwano.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shiwano/grunt-yaml.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shiwano/grunt-yaml/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shiwano/grunt-yaml/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-contrib-clean": "~0.4.0a",
+    "grunt-contrib-nodeunit": "~0.1.0",
+    "grunt": "~0.4.0a"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "js-yaml": "~1.0.3",
+    "async": "~0.1.22",
+    "underscore": "~1.4.3"
+  }
+}
