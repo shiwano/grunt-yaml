@@ -65,8 +65,8 @@ Default value: `2`
 A value that is given to `JSON.stringify` for pretty-printing.
 
 #### options.constructors
-Type: `Number`
-Default value: `2`
+Type: `Object`
+Default value: `{}`
 
 A Object for add custom constructor to [js-yaml](https://github.com/nodeca/js-yaml).
 
