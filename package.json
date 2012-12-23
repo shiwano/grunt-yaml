@@ -39,7 +39,6 @@
   ],
   "dependencies": {
     "js-yaml": "~1.0.3",
-    "async": "~0.1.22",
-    "underscore": "~1.4.3"
+    "async": "~0.1.22"
   }
 }

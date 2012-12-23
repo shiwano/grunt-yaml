@@ -11,7 +11,6 @@
 var path = require('path');
 var yaml = require('js-yaml');
 var async = require('async');
-var _ = require('underscore');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('yaml', 'Compile YAML to JSON', function() {
@@ -24,7 +23,9 @@ module.exports = function (grunt) {
     var filepaths = grunt.file.expandFiles(this.data.src);
     var taskDone = this.async();
 
-    _.each(options.constructors, function (constructor, tag) {
+    Object.keys(options.constructors).forEach(function (tag) {
+      var constructor = options.constructors[tag];
+
       yaml.addConstructor(tag, function (node) {
         return constructor.call(this, node, yaml);
       });
