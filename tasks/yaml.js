@@ -20,7 +20,7 @@ module.exports = function (grunt) {
       space: 2
     });
     var dest = this.data.dest;
-    var filepaths = grunt.file.expandFiles(this.data.src);
+    var filepaths = grunt.file.expand(this.data.src);
     var taskDone = this.async();
 
     Object.keys(options.constructors).forEach(function (tag) {
