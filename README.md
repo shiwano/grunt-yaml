@@ -3,8 +3,7 @@
 > Compiles YAML to JSON.
 
 ## Getting Started
-_If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide.
-And, This task would work on grunt version `~0.4.0rc7` only._
+_If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
 
 From the same directory as your project's [Gruntfile][Getting Started] and [package.json][], install this plugin with the following command:
 
@@ -56,7 +55,7 @@ grunt.initConfig({
 Type: `RegExp` or `String`
 Default value: `null`
 
-A value that specify file pattern for not compile.
+A value that specify file pattern to not compile.
 
 #### options.space
 Type: `Number`
@@ -68,7 +67,7 @@ A value that is given to `JSON.stringify` for pretty-printing.
 Type: `Object`
 Default value: `{}`
 
-A Object for add custom constructor to [js-yaml](https://github.com/nodeca/js-yaml).
+A Object that defines custom constructors to [js-yaml](https://github.com/nodeca/js-yaml).
 
 ### Usage Examples
 
@@ -78,7 +77,8 @@ See [my repository](https://github.com/shiwano/cw-schema).
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
 
 ## Release History
- * 2012-02-09   v0.1.1   Support for grunt 0.4.0rc7.
+ * 2013-04-14   v0.1.2   Support for grunt 0.4.0rc7.
+ * 2013-02-09   v0.1.1   Support for grunt 0.4.0rc7.
  * 2012-12-22   v0.1.0   First release.
 
 ## License
