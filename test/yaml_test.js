@@ -32,8 +32,8 @@ exports.test = {
   default_options: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options/example.json');
-    var expected = grunt.file.read('test/expected/default_options/example.json');
+    var actual = grunt.file.read('tmp/default_options/example_dir/example.json');
+    var expected = grunt.file.read('test/expected/default_options/example_dir/example.json');
     test.equal(actual, expected, 'Compiled YAML to JSON.');
 
     test.done();

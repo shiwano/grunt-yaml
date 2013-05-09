@@ -42,8 +42,9 @@ grunt.initConfig({
           }
         }
       },
-      dest: 'output_directory',
-      src: 'yaml_directory/**/*.yml'
+      files: [
+        {expand: true, cwd: 'yaml_directory/', src: ['**/*.yml'], dest: 'output_directory/'}
+      ]
     },
   },
 })

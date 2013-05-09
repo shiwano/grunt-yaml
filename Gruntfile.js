@@ -36,8 +36,9 @@ module.exports = function(grunt) {
             '!include': function () {} // For avoid tag missing error.
           }
         },
-        dest: 'tmp/default_options',
-        src: 'test/fixtures/**/*.yml'
+        files: [
+          {expand: true, cwd: 'test/fixtures/', src: ['**/*.yml'], dest: 'tmp/default_options/'}
+        ]
       },
       custom_options: {
         options: {
@@ -50,8 +51,9 @@ module.exports = function(grunt) {
             }
           }
         },
-        dest: 'tmp/custom_options',
-        src: 'test/fixtures/**/*.yml'
+        files: [
+          {expand: true, cwd: 'test/fixtures/', src: ['**/*.yml'], dest: 'tmp/custom_options/'}
+        ]
       }
     },
 
