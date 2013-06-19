@@ -1,4 +1,4 @@
-# grunt-yaml
+# grunt-yaml [![Build Status](https://secure.travis-ci.org/shiwano/grunt-yaml.png?branch=master)](http://travis-ci.org/shiwano/grunt-yaml)
 
 > Compiles YAML to JSON.
 
