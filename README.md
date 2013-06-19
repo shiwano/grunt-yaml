@@ -56,7 +56,7 @@ grunt.initConfig({
 Type: `RegExp` or `String`
 Default value: `null`
 
-A value that specify file pattern to not compile.
+A value that specifies file pattern not to compile.
 
 #### options.space
 Type: `Number`
