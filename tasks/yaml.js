@@ -17,7 +17,9 @@ module.exports = function(grunt) {
     var options = this.options({
       constructors: {},
       ignored: null,
-      space: 2
+      space: 2,
+      middleware: function(){},
+      disableDest: false
     });
     var taskDone = this.async();
 
@@ -40,8 +42,13 @@ module.exports = function(grunt) {
 
         yaml.loadAll(data, function(result) {
           var json = JSON.stringify(result, null, options.space);
-          grunt.file.write(dest, json);
-          grunt.log.writeln('Compiled ' + src.cyan + ' -> ' + dest.cyan);
+          if(typeof options.middleware === 'function'){
+            options.middleware(result, json);
+          }
+          if(!options.disableDest){
+            grunt.file.write(dest, json);
+            grunt.log.writeln('Compiled ' + src.cyan + ' -> ' + dest.cyan);
+          }
           done();
         });
       });
