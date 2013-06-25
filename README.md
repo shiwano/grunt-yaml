@@ -92,7 +92,7 @@ Default value: `{}`
 
 A Object that defines custom constructors to [js-yaml](https://github.com/nodeca/js-yaml).
 
-### options.middleware
+#### options.middleware
 Type: 'function'
 Default value: 'function(response, json){}'
 
