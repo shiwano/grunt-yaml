@@ -49,6 +49,28 @@ grunt.initConfig({
   },
 })
 ```
+In a situation where you do not want to output a file, but want to manipulate the data on your own, you can provide a middleware function and disable the destination write process:
+
+```js
+grunt.initConfig({
+  yaml: {
+    your_target: {
+      options: {
+        disableDest: true,    // Grunt will not create a config.json as per the destination of the files object
+        middleware: function(response, json){
+          console.log(response);    // YAML data
+          console.log(json);        // Stringified JSON
+        },
+        ignored: /^_/,
+        space: 4
+      },
+      files: {
+        'config.json': ['config.yml']
+      }
+    },
+  },
+})
+```
 
 ### Options
 
@@ -69,6 +91,18 @@ Type: `Object`
 Default value: `{}`
 
 A Object that defines custom constructors to [js-yaml](https://github.com/nodeca/js-yaml).
+
+#### options.middleware
+Type: 'function'
+Default value: 'function(response, json){}'
+
+A function which provides you an interface to manipulate the YAML before it becomes JSON, or manipulate the JSON after being stringified.
+
+#### options.disableDest
+Type: 'Boolean'
+Default: 'false'
+
+A boolean flag which will prevent grunt-yaml from creating an output file if you would like to just work with the middleware function.
 
 ### Usage Examples
 
