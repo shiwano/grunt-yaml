@@ -47,6 +47,20 @@ exports.test = {
     test.equal(actual, expected, 'Enabled constructors option.');
 
     test.done();
+  },
+
+  middleware_options: function(test) {
+    test.ok(fs.existsSync('tmp/middleware_options/middleware.json') === false, 'Enabled disableDest option.');
+
+    var actual = grunt.file.read('tmp/middleware_options/response.json');
+    var expected = grunt.file.read('test/expected/middleware_options/response.json');
+    test.equal(actual, expected, 'Enabled middleware option.');
+
+    actual = grunt.file.read('tmp/middleware_options/json.json');
+    expected = grunt.file.read('test/expected/middleware_options/json.json');
+    test.equal(actual, expected, 'Enabled middleware option.');
+
+    test.done();
   }
 };
 

@@ -46,7 +46,7 @@ module.exports = function(grunt) {
           space: 2,
           constructors: {
             '!include': function (node, yaml) {
-              var data = require('fs').readFileSync(node.value, 'utf-8');
+              var data = grunt.file.read(node.value, 'utf-8');
               return yaml.load(data);
             }
           }
@@ -54,6 +54,19 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'test/fixtures/', src: ['**/*.yml'], dest: 'tmp/custom_options/'}
         ]
+      },
+      middleware_options: {
+        options: {
+          disableDest: true,
+          middleware: function(response, json){
+            var fs = require('fs');
+            grunt.file.write('tmp/middleware_options/response.json', JSON.stringify(response));
+            grunt.file.write('tmp/middleware_options/json.json', json);
+          }
+        },
+        files: {
+          'tmp/middleware_options/middleware.json': ['test/fixtures/middleware.yml']
+        }
       }
     },
 

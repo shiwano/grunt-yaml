@@ -37,7 +37,7 @@ grunt.initConfig({
         space: 4,
         constructors: {
           '!include': function (node, yaml) {
-            var data = require('fs').readFileSync(node.value, 'utf-8');
+            var data = grunt.file.read(node.value, 'utf-8');
             return yaml.load(data);
           }
         }
@@ -61,7 +61,6 @@ grunt.initConfig({
           console.log(response);    // YAML data
           console.log(json);        // Stringified JSON
         },
-        ignored: /^_/,
         space: 4
       },
       files: {
