@@ -111,6 +111,7 @@ See [my repository](https://github.com/shiwano/cw-schema).
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
 
 ## Release History
+ * 2013-06-26   v0.2.1   Add `middleware` and `disableDest` options.
  * 2013-05-10   v0.2.0   Use `files` format.
  * 2013-04-14   v0.1.2   Support for grunt 0.4.0.
  * 2013-02-09   v0.1.1   Support for grunt 0.4.0rc7.
