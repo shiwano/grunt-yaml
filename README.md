@@ -92,14 +92,14 @@ Default value: `{}`
 A Object that defines custom constructors to [js-yaml](https://github.com/nodeca/js-yaml).
 
 #### options.middleware
-Type: 'function'
-Default value: 'function(response, json){}'
+Type: `function`
+Default value: `function(response, json){}`
 
 A function which provides you an interface to manipulate the YAML before it becomes JSON, or manipulate the JSON after being stringified.
 
 #### options.disableDest
-Type: 'Boolean'
-Default: 'false'
+Type: `Boolean`
+Default: `false`
 
 A boolean flag which will prevent grunt-yaml from creating an output file if you would like to just work with the middleware function.
 
