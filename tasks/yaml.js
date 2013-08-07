@@ -43,7 +43,7 @@ module.exports = function(grunt) {
         yaml.loadAll(data, function(result) {
           var json = JSON.stringify(result, null, options.space);
           if(typeof options.middleware === 'function'){
-            options.middleware(result, json);
+            options.middleware(result, json, src, dest);
           }
           if(!options.disableDest){
             grunt.file.write(dest, json);
