@@ -57,7 +57,7 @@ grunt.initConfig({
     your_target: {
       options: {
         disableDest: true,    // Grunt will not create a config.json as per the destination of the files object
-        middleware: function(response, json){
+        middleware: function(response, json, src, dest){
           console.log(response);    // YAML data
           console.log(json);        // Stringified JSON
         },
