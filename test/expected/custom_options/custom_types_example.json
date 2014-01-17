@@ -1,0 +1,10 @@
+{
+  "includeTest": {
+    "nyancat": "nyannyannyan"
+  },
+  "maxTest": 24,
+  "extendTest": {
+    "nyancat": "nyannyannyan",
+    "lol": "lolololololol"
+  }
+}

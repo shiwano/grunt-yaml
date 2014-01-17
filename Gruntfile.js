@@ -8,6 +8,8 @@
 
 'use strict';
 
+var _ = require('lodash');
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -31,11 +33,6 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     yaml: {
       default_options: {
-        options: {
-          constructors: {
-            '!include': function () {} // For avoid tag missing error.
-          }
-        },
         files: [
           {expand: true, cwd: 'test/fixtures/', src: ['**/*.yml'], dest: 'tmp/default_options/'}
         ]
@@ -44,10 +41,17 @@ module.exports = function(grunt) {
         options: {
           ignored: /^_/,
           space: 2,
-          constructors: {
-            '!include': function (node, yaml) {
-              var data = grunt.file.read(node.value, 'utf-8');
-              return yaml.load(data);
+          customTypes: {
+            '!include scalar': function(value, yamlLoader) {
+              var data = grunt.file.read(value, 'utf-8');
+              return yamlLoader(data);
+            },
+            '!max sequence': function(values) {
+              return Math.max.apply(null, values);
+            },
+            '!extend mapping': function(value, yamlLoader) {
+              var baseData = grunt.file.read(value.basePath, 'utf-8');
+              return _.extend(yamlLoader(baseData), value.partial);
             }
           }
         },

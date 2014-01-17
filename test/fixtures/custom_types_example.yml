@@ -1,0 +1,6 @@
+includeTest: !include test/fixtures/_partial.yml
+maxTest: !max [11, 24, 9, 3]
+extendTest: !extend
+  basePath: test/fixtures/_partial.yml
+  partial:
+    lol: lolololololol

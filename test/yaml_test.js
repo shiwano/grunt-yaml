@@ -40,16 +40,18 @@ exports.test = {
   },
 
   custom_options: function(test) {
+    test.expect(2);
     test.ok(fs.existsSync('tmp/custom_options/_partial.json') === false, 'Enabled ignored option.');
 
-    var actual = grunt.file.read('tmp/custom_options/constructor_example.json');
-    var expected = grunt.file.read('test/expected/custom_options/constructor_example.json');
-    test.equal(actual, expected, 'Enabled constructors option.');
+    var actual = grunt.file.read('tmp/custom_options/custom_types_example.json');
+    var expected = grunt.file.read('test/expected/custom_options/custom_types_example.json');
+    test.equal(actual, expected, 'Enabled customTypes option.');
 
     test.done();
   },
 
   middleware_options: function(test) {
+    test.expect(3);
     test.ok(fs.existsSync('tmp/middleware_options/middleware.json') === false, 'Enabled disableDest option.');
 
     var actual = grunt.file.read('tmp/middleware_options/response.json');
