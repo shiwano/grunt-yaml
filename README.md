@@ -96,7 +96,7 @@ A value that is given to `JSON.stringify` for pretty-printing.
 Type: `Object`
 Default value: `{}`
 
-A Object that defines custom types to [js-yaml](https://github.com/nodeca/js-yaml). A Object key is a `tag` and `loadKind` pair which is separated with space (e.g. '!include scalar' or '!max sequence', '!extend mapping'). A Object value is a wrapper of loadResolver function which take `value` and `yamlLoader` arguments.
+A Object that defines custom types to [js-yaml](https://github.com/nodeca/js-yaml). A Object key is a `tag` and `loadKind` pair which is separated with a white space (e.g. `!include scalar` or `!max sequence`, `!extend mapping`). A Object value is a wrapper of loadResolver function which take `value` and `yamlLoader` arguments.
 
 See also js-yaml [document](https://github.com/nodeca/js-yaml/wiki/Custom-types).
 
