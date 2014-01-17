@@ -96,9 +96,8 @@ A value that is given to `JSON.stringify` for pretty-printing.
 Type: `Object`
 Default value: `{}`
 
-A Object that defines custom types to [js-yaml](https://github.com/nodeca/js-yaml).
-Object key is a `tag` and `loadKind` pair which is separated with space (e.g. '!include scalar' or '!max sequence', '!extend mapping').
-Object value is a wrapper of loadResolver function which take `value` and `yamlLoader` arguments.
+A Object that defines custom types to [js-yaml](https://github.com/nodeca/js-yaml). A Object key is a `tag` and `loadKind` pair which is separated with space (e.g. '!include scalar' or '!max sequence', '!extend mapping'). A Object value is a wrapper of loadResolver function which take `value` and `yamlLoader` arguments.
+
 See also js-yaml [document](https://github.com/nodeca/js-yaml/wiki/Custom-types).
 
 #### options.middleware
@@ -121,8 +120,7 @@ See [my repository](https://github.com/shiwano/cw-schema).
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
 
 ## Release History
- * 2014-01-17   v0.3.0   Update dependencies.
-                         Introduce `customTypes` option for js-yaml v0.3.X. (Remove `constructors` option)
+ * 2014-01-17   v0.3.0   Introduce `customTypes` option for js-yaml v0.3.X. (Remove `constructors` option)
  * 2014-01-17   v0.2.2   Add src and dest path to middleware.
  * 2013-06-26   v0.2.1   Add `middleware` and `disableDest` options.
  * 2013-05-10   v0.2.0   Use `files` format.
