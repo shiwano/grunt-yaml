@@ -35,10 +35,17 @@ grunt.initConfig({
       options: {
         ignored: /^_/,
         space: 4,
-        constructors: {
-          '!include': function (node, yaml) {
-            var data = grunt.file.read(node.value, 'utf-8');
-            return yaml.load(data);
+        customTypes: {
+          '!include scalar': function(value, yamlLoader) {
+            var data = grunt.file.read(value, 'utf-8');
+            return yamlLoader(data);
+          },
+          '!max sequence': function(values) {
+            return Math.max.apply(null, values);
+          },
+          '!extend mapping': function(value, yamlLoader) {
+            var baseData = grunt.file.read(value.basePath, 'utf-8');
+            return _.extend(yamlLoader(baseData), value.partial);
           }
         }
       },
@@ -85,21 +92,24 @@ Default value: `2`
 
 A value that is given to `JSON.stringify` for pretty-printing.
 
-#### options.constructors
+#### options.customTypes
 Type: `Object`
 Default value: `{}`
 
-A Object that defines custom constructors to [js-yaml](https://github.com/nodeca/js-yaml).
+A Object that defines custom types to [js-yaml](https://github.com/nodeca/js-yaml).
+Object key is a `tag` and `loadKind` pair which is separated with space (e.g. '!include scalar' or '!max sequence', '!extend mapping').
+Object value is a wrapper of loadResolver function which take `value` and `yamlLoader` arguments.
+See also js-yaml [document](https://github.com/nodeca/js-yaml/wiki/Custom-types).
 
 #### options.middleware
-Type: `function`
-Default value: `function(response, json){}`
+Type: `Function`
+Default value: `function(response, json, src, dest) {}`
 
 A function which provides you an interface to manipulate the YAML before it becomes JSON, or manipulate the JSON after being stringified.
 
 #### options.disableDest
 Type: `Boolean`
-Default: `false`
+Default value: `false`
 
 A boolean flag which will prevent grunt-yaml from creating an output file if you would like to just work with the middleware function.
 
