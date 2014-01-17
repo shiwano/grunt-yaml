@@ -8,9 +8,10 @@
 
 'use strict';
 
-var path = require('path');
-var yaml = require('js-yaml');
-var async = require('async');
+var path = require('path'),
+    yaml = require('js-yaml'),
+    async = require('async'),
+    _ = require('lodash');
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('yaml', 'Compile YAML to JSON', function() {
