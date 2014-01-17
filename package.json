@@ -1,7 +1,7 @@
 {
   "name": "grunt-yaml",
   "description": "Compiles YAML to JSON.",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "homepage": "https://github.com/shiwano/grunt-yaml",
   "author": {
     "name": "Shogo Iwano",
