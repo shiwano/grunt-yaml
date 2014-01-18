@@ -42,7 +42,6 @@
   ],
   "dependencies": {
     "js-yaml": "~3.0.1",
-    "async": "~0.2.9",
     "lodash": "~2.4.1"
   }
 }

@@ -10,7 +10,6 @@
 
 var path = require('path'),
     yaml = require('js-yaml'),
-    async = require('async'),
     _ = require('lodash');
 
 module.exports = function(grunt) {
