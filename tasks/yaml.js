@@ -66,8 +66,8 @@ module.exports = function(grunt) {
         try {
           var result = loadYaml(data);
         } catch (e) {
-          grunt.log.error(e);
-          return false;
+          grunt.warn(e);
+          return;
         }
 
         var json = JSON.stringify(result, null, options.space);
