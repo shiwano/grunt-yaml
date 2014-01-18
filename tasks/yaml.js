@@ -16,7 +16,12 @@ module.exports = function(grunt) {
   var yamlSchema = null;
 
   function loadYaml(data) {
-    return yaml.safeLoad(data, { schema: yamlSchema });
+    try {
+      return yaml.safeLoad(data, { schema: yamlSchema });
+    } catch (e) {
+      grunt.warn(e);
+      return null;
+    }
   }
 
   function createYamlSchema(customTypes) {
@@ -29,6 +34,7 @@ module.exports = function(grunt) {
         loadKind: tagAndKind[1],
         loadResolver: function(state) {
           var result = resolver.call(this, state.result, loadYaml);
+
           if (_.isUndefined(result) || _.isFunction(result)) {
             return false;
           } else {
@@ -57,19 +63,13 @@ module.exports = function(grunt) {
 
     _.each(this.files, function(filePair) {
       filePair.src.forEach(function(src) {
-        if (grunt.file.isDir(src) || (options.ignored && path.basename(src).match(options.ignored)))
-          return;
-
-        var dest = filePair.dest.replace(/\.ya?ml$/, '.json');
-        var data = grunt.file.read(src);
-
-        try {
-          var result = loadYaml(data);
-        } catch (e) {
-          grunt.warn(e);
+        if (grunt.file.isDir(src) || (options.ignored && path.basename(src).match(options.ignored))) {
           return;
         }
 
+        var dest = filePair.dest.replace(/\.ya?ml$/, '.json');
+        var data = grunt.file.read(src);
+        var result = loadYaml(data);
         var json = JSON.stringify(result, null, options.space);
 
         if (_.isFunction(options.middleware)) {
