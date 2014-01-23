@@ -14,6 +14,7 @@ var path = require('path'),
 
 module.exports = function(grunt) {
   var yamlSchema = null;
+  var strictOption = false;
 
   function loadYaml(filepath, options) {
     var data = grunt.file.read(filepath, options);
@@ -21,7 +22,8 @@ module.exports = function(grunt) {
     try {
       return yaml.safeLoad(data, {
         schema: yamlSchema,
-        filename: filepath
+        filename: filepath,
+        strict: strictOption
       });
     } catch (e) {
       grunt.warn(e);
@@ -61,10 +63,12 @@ module.exports = function(grunt) {
       ignored: null,
       space: 2,
       middleware: function() {},
-      disableDest: false
+      disableDest: false,
+      strict: false
     });
 
     yamlSchema = createYamlSchema(options.customTypes);
+    strictOption = options.strict;
 
     _.each(this.files, function(filePair) {
       filePair.src.forEach(function(src) {

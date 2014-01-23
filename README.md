@@ -112,6 +112,12 @@ Default value: `false`
 
 A boolean flag which will prevent grunt-yaml from creating an output file if you would like to just work with the middleware function.
 
+#### options.strict
+Type: `Boolean`
+Default value: `false`
+
+A boolean flag which makes js-yaml to throw errors instead of warnings.
+
 ### Usage Examples
 
 See [my repository](https://github.com/shiwano/cw-schema).
