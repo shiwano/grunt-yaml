@@ -15,9 +15,14 @@ var path = require('path'),
 module.exports = function(grunt) {
   var yamlSchema = null;
 
-  function loadYaml(data) {
+  function loadYaml(filepath, options) {
+    var data = grunt.file.read(filepath, options);
+
     try {
-      return yaml.safeLoad(data, { schema: yamlSchema });
+      return yaml.safeLoad(data, {
+        schema: yamlSchema,
+        filename: filepath
+      });
     } catch (e) {
       grunt.warn(e);
       return null;
@@ -68,8 +73,7 @@ module.exports = function(grunt) {
         }
 
         var dest = filePair.dest.replace(/\.ya?ml$/, '.json');
-        var data = grunt.file.read(src);
-        var result = loadYaml(data);
+        var result = loadYaml(src);
         var json = JSON.stringify(result, null, options.space);
 
         if (_.isFunction(options.middleware)) {

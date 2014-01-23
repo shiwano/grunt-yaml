@@ -37,15 +37,13 @@ grunt.initConfig({
         space: 4,
         customTypes: {
           '!include scalar': function(value, yamlLoader) {
-            var data = grunt.file.read(value, 'utf-8');
-            return yamlLoader(data);
+            return yamlLoader(value);
           },
           '!max sequence': function(values) {
             return Math.max.apply(null, values);
           },
           '!extend mapping': function(value, yamlLoader) {
-            var baseData = grunt.file.read(value.basePath, 'utf-8');
-            return _.extend(yamlLoader(baseData), value.partial);
+            return _.extend(yamlLoader(value.basePath), value.partial);
           }
         }
       },
@@ -67,6 +65,8 @@ grunt.initConfig({
         middleware: function(response, json, src, dest){
           console.log(response);    // YAML data
           console.log(json);        // Stringified JSON
+          console.log(src);         // Source file path
+          console.log(dest);        // Destination file path
         },
         space: 4
       },
