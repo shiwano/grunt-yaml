@@ -126,6 +126,7 @@ See [my repository](https://github.com/shiwano/cw-schema).
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
 
 ## Release History
+ * 2014-01-23   v0.4.0   Change yamlLoader behavior for showing the file name on js-yaml error, and add `strict` option.
  * 2014-01-18   v0.3.1   Use grunt.warn on js-yaml error.
  * 2014-01-17   v0.3.0   Introduce `customTypes` option for js-yaml v0.3.X. (Remove `constructors` option)
  * 2014-01-17   v0.2.2   Add src and dest path to middleware.
