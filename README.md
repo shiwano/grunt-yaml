@@ -118,6 +118,18 @@ Default value: `false`
 
 A boolean flag which makes js-yaml to throw errors instead of warnings.
 
+#### options.readEncoding
+Type: `String`
+Default value: `grunt.file.defaultEncoding`
+
+An override to the default buffer encoding used to read in the YAML file (`grunt.file.read`).
+
+#### options.writeEncoding
+Type: `String`
+Default value: `grunt.file.defaultEncoding`
+
+An override to the default buffer encoding used to write out the JSON file (`grunt.file.write`).
+
 ### Usage Examples
 
 See [my repository](https://github.com/shiwano/cw-schema).
