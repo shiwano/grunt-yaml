@@ -64,8 +64,16 @@ module.exports = function(grunt) {
       space: 2,
       middleware: function() {},
       disableDest: false,
-      strict: false
+      strict: false,
+      readEncoding: grunt.file.defaultEncoding,
+      writeEncoding: grunt.file.defaultEncoding
     });
+    var readOptions = {
+            encoding: options.readEncoding
+    }
+    var writeOptions = {
+            encoding: options.writeEncoding
+    }
 
     yamlSchema = createYamlSchema(options.customTypes);
     strictOption = options.strict;
@@ -77,7 +85,7 @@ module.exports = function(grunt) {
         }
 
         var dest = filePair.dest.replace(/\.ya?ml$/, '.json');
-        var result = loadYaml(src);
+        var result = loadYaml(src, readOptions);
         var json = JSON.stringify(result, null, options.space);
 
         if (_.isFunction(options.middleware)) {
@@ -85,7 +93,7 @@ module.exports = function(grunt) {
         }
 
         if (!options.disableDest) {
-          grunt.file.write(dest, json);
+          grunt.file.write(dest, json, writeOptions);
           grunt.log.writeln('Compiled ' + src.cyan + ' -> ' + dest.cyan);
         }
       });
