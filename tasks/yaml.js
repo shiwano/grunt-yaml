@@ -69,11 +69,11 @@ module.exports = function(grunt) {
       writeEncoding: grunt.file.defaultEncoding
     });
     var readOptions = {
-            encoding: options.readEncoding
-    }
+      encoding: options.readEncoding
+    };
     var writeOptions = {
-            encoding: options.writeEncoding
-    }
+      encoding: options.writeEncoding
+    };
 
     yamlSchema = createYamlSchema(options.customTypes);
     strictOption = options.strict;
